@@ -10,7 +10,7 @@ import {VlMapLayerStyle} from "./src/vl-map-layer-style";
 import {VlMapLayerCircleStyle} from "./src/vl-map-layer-circle-style";
 
 (() => {
-    loadScript('VlMap-openlayers', '/node_modules/vl-mapactions/lib/openlayers/dist/ol.js');
+    loadScript('VlMap-openlayers', '/node_modules/vl-mapactions/lib/openlayers/dist/ol-debug.js');
     loadScript('VlMap-proj4', '/node_modules/proj4/dist/proj4.js');
     loadScript('VlMap-mapactions', '/node_modules/vl-mapactions/dist/mapactions-min.js', () => {
         customElements.define('vl-map', VlMap);

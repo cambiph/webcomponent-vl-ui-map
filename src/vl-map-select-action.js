@@ -34,7 +34,7 @@ export class VlMapSelectAction extends VlMapAction {
             this._action.dehoverAllFeatures();
         }
     }
-    
+
     select(feature) {
         if (this._action && feature) {
             this._action.selectFeature(feature);
@@ -52,8 +52,26 @@ export class VlMapSelectAction extends VlMapAction {
     }
     
     _createAction(layer) {
-        return new acd.ol.action.SelectAction(layer, (args) => {this._onSelect(args)}, {
+        return new acd.ol.action.SelectAction(layer, (args) => {
+            this.__featuresGeselecteerd(args);
+            this._onSelect(args);
+        }, {
             style: this._style
         });
+    }
+
+    __featuresGeselecteerd(data) {
+        if (data) {
+            this.__geselecteerdeFeatures = data.get('features') || [data];
+        } else {
+            this.__geselecteerdeFeatures = null;
+        }
+    };
+
+    _rerender() {
+        if (this.__geselecteerdeFeatures) {
+            this.reset();
+            this.__geselecteerdeFeatures.forEach((feature) => this.mark(feature.getId()));
+        }
     }
 }

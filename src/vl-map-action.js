@@ -81,6 +81,9 @@ export class VlMapAction extends VlElement(HTMLElement) {
 
     _layerChangedCallback() {
         this._computeAction(this._map, this.layer);
+        this._map.on('moveend', () => {
+            this._rerender();
+        });
     }
 
     _createAction() {
@@ -102,4 +105,6 @@ export class VlMapAction extends VlElement(HTMLElement) {
             this.setAttribute('active', (this._map && this._map.currentAction == this._action));
         });
     }
+
+    _rerender() {}
 }
