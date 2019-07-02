@@ -1,10 +1,8 @@
----
 project:
-key: WEBCOM
-plan:
-  project-key: WEBCOM-VLUIMAP
-  name: WC-TEST
-  key: DI
+  key: WEBCOM
+  plan:
+    name: WC-TEST
+    key: WEBCOM-DI
 
 stages:
   - Build:
