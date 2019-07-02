@@ -6,11 +6,11 @@ project:
 
 stages:
   - jobs:
-    - script: /opt/scripts/git/git-repository-information-restore.sh
-    - script:
-        - cp ${bamboo.gitconfig_path} .
-        - cp ${bamboo.npmrc_path} .
-        - cp ${bamboo_gitcredentials_path} .
+    - scripts: 
+      - /opt/scripts/git/git-repository-information-restore.sh
+      - cp ${bamboo.gitconfig_path} .
+      - cp ${bamboo.npmrc_path} .
+      - cp ${bamboo_gitcredentials_path} .
     - script: docker build --build-arg VERSION=${bamboo.release_version} --build-arg REPO=${bamboo_planRepository_repositoryUrl} --no-cache .
     - script: /opt/scripts/docker/stop-docker-containers.sh
 
