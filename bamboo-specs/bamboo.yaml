@@ -13,6 +13,3 @@ stages:
       - cp ${bamboo_gitcredentials_path} .
       - docker build --build-arg VERSION=${bamboo.release_version} --build-arg REPO=${bamboo_planRepository_repositoryUrl} --no-cache .
       - /opt/scripts/docker/stop-docker-containers.sh
-
-triggers:
-  - remote: svn.milieuinfo.be
