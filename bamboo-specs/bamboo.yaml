@@ -1,5 +1,6 @@
 ---
-version: 2
+project:
+key: WEBCOM
 plan:
   project-key: WEBCOM-VLUIMAP
   name: WC-TEST
