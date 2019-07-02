@@ -1,7 +1,7 @@
 project:
   key: WEBCOM
   plan:
-    name: WC-TEST
+    name: WC-TEST2
     key: WEBCOM-DI
 
 stages:
