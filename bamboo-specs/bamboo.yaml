@@ -1,7 +1,7 @@
 project:
   key: WEBCOM
   plan:
-    name: WC-TEST2
+    name: WC-TEST3
     key: WEBCOMDI
 
 stages:
@@ -15,4 +15,3 @@ stages:
         - /opt/scripts/docker/stop-docker-containers.sh
       requirements:
         - REMOTE_ONLY
-        - Docker
