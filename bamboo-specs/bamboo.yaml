@@ -8,10 +8,10 @@ stages:
   - jobs:
     - scripts: 
         - /opt/scripts/git/git-repository-information-restore.sh
-        - cp ${bamboo.gitconfig_path} ${bamboo.build_working_directory}
-        - cp ${bamboo.npmrc_path} ${bamboo.build_working_directory}
-        - cp ${bamboo.gitcredentials_path} ${bamboo.build_working_directory}
-        - docker build --build-arg VERSION=${bamboo.release_version} --build-arg REPO=${bamboo.planRepository_repositoryUrl} --no-cache .
+        - cp ${bamboo.gitconfig.path} ${bamboo.build.working.directory}
+        - cp ${bamboo.npmrc.path} ${bamboo.build.working.directory}
+        - cp ${bamboo.gitcredentials.path} ${bamboo.build.working.directory}
+        - docker build --build-arg VERSION=${bamboo.release.version} --build-arg REPO=${bamboo.planRepository.repositoryUrl} --no-cache .
         - /opt/scripts/docker/stop-docker-containers.sh
       requirements:
         - REMOTE_ONLY
