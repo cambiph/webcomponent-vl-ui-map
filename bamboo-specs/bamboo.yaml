@@ -3,6 +3,19 @@ project:
   plan:
     name: WC-TEST2
     key: WEBCOMDI
+  plan-permissions:
+    - users: 
+      - pcambien
+    - groups: 
+      - developer-admin
+    - roles:
+      - logged-in
+    - permissions:
+      - view
+      - edit
+      - build
+      - clone
+      - admin
 
 stages:
   - jobs:
