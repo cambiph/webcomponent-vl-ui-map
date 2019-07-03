@@ -11,7 +11,7 @@ stages:
         - cp ${bamboo.gitconfig_path} .
         - cp ${bamboo.npmrc_path} .
         - cp ${bamboo.gitcredentials_path} .
-        - docker build --build-arg VERSION=${bamboo.release_version} --build-arg REPO=${bamboo_planRepository_repositoryUrl} --no-cache .
+        - docker build --build-arg VERSION=${bamboo.release_version} --build-arg REPO=${bamboo.planRepository_repositoryUrl} --no-cache .
         - /opt/scripts/docker/stop-docker-containers.sh
       requirements:
         - REMOTE_ONLY
