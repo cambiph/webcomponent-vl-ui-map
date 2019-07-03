@@ -1,13 +1,12 @@
 project:
   key: WEBCOM
   plan:
-    name: WC-TEST3
+    name: WC-TEST2
     key: WEBCOMDI
 
 stages:
   - jobs:
     - scripts: 
-        - /opt/scripts/git/git-repository-information-restore.sh
         - cp ${bamboo.gitconfig_path} .
         - cp ${bamboo.npmrc_path} .
         - cp ${bamboo_gitcredentials_path} .
