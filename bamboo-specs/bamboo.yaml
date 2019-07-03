@@ -1,18 +1,24 @@
-project:
-  key: WEBCOM
-  plan:
-    name: WC-TEST2
-    key: WEBCOMDI
+version: 2
+plan:
+  project-key: WEBCOM
+  key: WEBCOMDI
+  name: WCTEST2
 
 stages:
-  - jobs:
-    - scripts: 
-      - /opt/scripts/git/git-repository-information-restore.sh
-      - cp ${bamboo.gitconfig_path} .
-      - cp ${bamboo.npmrc_path} .
-      - cp ${bamboo_gitcredentials_path} .
-      - docker build --build-arg VERSION=${bamboo.release_version} --build-arg REPO=${bamboo_planRepository_repositoryUrl} --no-cache .
-      - /opt/scripts/docker/stop-docker-containers.sh
-  - requirements:
+  - Build:
+    - Build
+
+Build:
+  key: B
+  tasks:
+    - script:
+        scripts:
+          - /opt/scripts/git/git-repository-information-restore.sh
+          - cp ${bamboo.gitconfig_path} .
+          - cp ${bamboo.npmrc_path} .
+          - cp ${bamboo_gitcredentials_path} .
+          - docker build --build-arg VERSION=${bamboo.release_version} --build-arg REPO=${bamboo_planRepository_repositoryUrl} --no-cache .
+          - /opt/scripts/docker/stop-docker-containers.sh
+  requirements:
     - REMOTE_ONLY
     - Docker
