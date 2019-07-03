@@ -7,7 +7,12 @@ project:
 stages:
   - jobs:
     - scripts: 
-        - /opt/scripts/git/git-repository-information-restore.sh
+        - git remote remove origin
+        - git remote add origin "${bamboo.planRepository_repositoryUrl}"
+        - git remote set-url origin "${bamboo_planRepository_repositoryUrl}"
+        - git remote -v
+        - git fetch
+        - git branch --set-upstream-to "origin/${bamboo.planRepository_branch}"
         - cp ${bamboo.gitconfig_path} .
         - cp ${bamboo.npmrc_path} .
         - cp ${bamboo.gitcredentials_path} .
