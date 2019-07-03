@@ -1,7 +1,10 @@
-plan:
-  project-key: WEBCOM
-  name: WC-TEST2
-  key: WEBCOMDI
+project:
+  key: WEBCOM
+  
+  plan:
+    project-key: WEBCOM
+    name: WC-TEST2
+    key: WEBCOMDI
 
 stages:
   - jobs:
